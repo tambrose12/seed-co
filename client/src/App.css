@@ -14,10 +14,15 @@
 
 .navBar {
   margin: 0;
+
 }
 
 .NavLogo {
   height: 3em;
+}
+
+.mainImg {
+  width: 100vw;
 }
 
 .h1 {
