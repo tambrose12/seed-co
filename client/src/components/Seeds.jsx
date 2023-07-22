@@ -1,5 +1,5 @@
 import NavbarComponent from "./NavbarComponent"
-
+import FooterComponent from "./FooterComponent"
 
 export default function Seeds() {
 
@@ -9,6 +9,8 @@ export default function Seeds() {
             <h2>Please see our selection of seeds below.</h2>
 
             <p>(insert seeds here)</p>
+
+            <FooterComponent />
         </div>
     )
 }

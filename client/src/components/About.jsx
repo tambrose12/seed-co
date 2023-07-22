@@ -5,7 +5,7 @@ import RoundLogo from '/src/RoundLogo.png'
 export default function About() {
 
     return (
-        <div>
+        <div id='aboutDiv'>
             <div>
                 <img src={RoundLogo} className="logo" alt="Logo" />
             </div>

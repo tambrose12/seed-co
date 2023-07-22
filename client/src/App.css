@@ -1,7 +1,17 @@
 #root {
+  display: flex;
+  flex-direction: column;
   color: #064635;
   text-align: center;
   font-family: 'Bellefair', serif;
+}
+
+body,
+html,
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo {
@@ -32,4 +42,19 @@
 
 p {
   margin: 3em
+}
+
+footer {
+  background-color: #064635;
+  color: white;
+  padding: 2em;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin-top: auto;
+}
+
+#aboutDiv {
+  padding-bottom: 10em;
 }

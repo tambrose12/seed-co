@@ -22,3 +22,4 @@ class Seeds(db.Model, SerializerMixin):
     image = db.Column(db.String)
     name = db.Column(db.String)
     price = db.Column(db.Float)
+    in_stock = db.Column(db.Boolean)
