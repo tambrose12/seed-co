@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router'
 import RoundLogo from '/src/RoundLogo.png'
 import mainImg from '/src/mainImg.jpg'
@@ -9,15 +9,40 @@ import Home from './components/Home'
 import Seeds from './components/Seeds'
 import Contact from './components/Contact'
 import Tips from './components/Tips'
+import SeedCard from './components/SeedCard'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  const [seeds, setSeeds] = useState([])
+
+  // useEffect(() => {
+  //   fetch('/seeds')
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         response.json().then((seeds) => setSeeds(seeds))
+  //       } else {
+  //         r.json().then((err) => console.log(err));
+  //       }
+  //     })
+  // }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:5555/seeds')
+      .then(r => r.json())
+      .then(seeds => setSeeds(seeds))
+  }, [])
+
+  console.log(seeds)
+  let seedCards = seeds.map(seed => <SeedCard key={seed.id} seed={seed} />)
+
+  console.log(seedCards)
 
   return (
     <>
       <Routes>
         <Route index element={<Home />} />
-        <Route path='/seeds' element={<Seeds />} />
+        <Route path='/seeds' element={<Seeds seedCards={seedCards} />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/tips' element={<Tips />} />
       </Routes>

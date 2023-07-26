@@ -40,6 +40,8 @@ html,
   color: #064635;
 }
 
+
+
 p {
   margin: 3em
 }
@@ -57,4 +59,8 @@ footer {
 
 #aboutDiv {
   padding-bottom: 10em;
+}
+
+#seedContainer {
+  margin: 3rem;
 }

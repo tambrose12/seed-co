@@ -15,7 +15,7 @@ metadata = MetaData(naming_convention={
 })
 
 
-class Seeds(db.Model, SerializerMixin):
+class Seed(db.Model, SerializerMixin):
     __tablename__ = 'seeds'
 
     id = db.Column(db.Integer, primary_key=True)
