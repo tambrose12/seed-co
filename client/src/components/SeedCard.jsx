@@ -9,7 +9,7 @@ export default function SeedCard({ seed }) {
 
 
     return (
-        <Card style={{ width: '18rem', margin: '1rem', paddingTop: '12px' }}>
+        <Card style={{ width: '18rem', margin: '1rem' }}>
             <Card.Img variant="top" src={seed.image} alt={seed.name} />
             <Card.Body>
                 <Card.Title>{seed.name}</Card.Title>

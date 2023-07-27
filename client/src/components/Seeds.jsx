@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import SeedCard from "./SeedCard"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Container } from "react-bootstrap";
 
 export default function Seeds({ seedCards }) {
 
@@ -12,11 +13,11 @@ export default function Seeds({ seedCards }) {
     return (
         <div id="seeds">
             <NavbarComponent />
-            <h2 style={{ marginTop: '1rem' }}>Our Seeds</h2>
+            <h1 style={{ marginTop: '1rem' }}>Our Seeds</h1>
 
-            <div id='seedContainer' className="container container-fluid row flex-wrap">
+            <Container id='seedContainer' className="justify-content-md-center flex-wrap" md='auto' style={{ marginBottom: '7rem', justifyContent: 'center' }}>
                 {seedCards}
-            </div>
+            </Container>
 
             <FooterComponent />
         </div>

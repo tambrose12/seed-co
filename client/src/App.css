@@ -61,6 +61,16 @@ footer {
   padding-bottom: 10em;
 }
 
+
 #seedContainer {
-  margin: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  /* margin: 3rem;
+  margin-bottom: 50px; */
+}
+
+#seeds {
+  margin-bottom: 50px;
 }
