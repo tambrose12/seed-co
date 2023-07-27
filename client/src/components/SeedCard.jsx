@@ -14,7 +14,7 @@ export default function SeedCard({ seed }) {
             <Card.Body>
                 <Card.Title>{seed.name}</Card.Title>
                 <Card.Text>
-                    Price: {seed.price}
+                    Price: ${seed.price.toFixed(2)}
                 </Card.Text>
                 <Button variant="outline-success">Add to Cart</Button>
             </Card.Body>
