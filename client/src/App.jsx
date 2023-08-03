@@ -10,22 +10,39 @@ import Seeds from './components/Seeds'
 import Contact from './components/Contact'
 import Tips from './components/Tips'
 import SeedCard from './components/SeedCard'
+import Cart from './components/Cart'
 
 function App() {
   const [count, setCount] = useState(0)
 
   const [seeds, setSeeds] = useState([])
 
-  // useEffect(() => {
-  //   fetch('/seeds')
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         response.json().then((seeds) => setSeeds(seeds))
-  //       } else {
-  //         r.json().then((err) => console.log(err));
-  //       }
-  //     })
-  // }, [])
+  const [cartItems, setCartItems] = useState([]);
+
+  const onAdd = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
+    }
+  };
+  const onRemove = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist.qty === 1) {
+      setCartItems(cartItems.filter((x) => x.id !== product.id));
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+        )
+      );
+    }
+  };
 
   useEffect(() => {
     fetch('http://localhost:5555/seeds')
@@ -34,17 +51,23 @@ function App() {
   }, [])
 
   console.log(seeds)
-  let seedCards = seeds.map(seed => <SeedCard key={seed.id} seed={seed} />)
+  let seedCards = seeds.map(seed => <SeedCard key={seed.id} seed={seed} onAdd={onAdd} />)
 
   console.log(seedCards)
 
   return (
     <>
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<Home countCartItems={cartItems.length} />} />
         <Route path='/seeds' element={<Seeds seedCards={seedCards} />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/tips' element={<Tips />} />
+        <Route path='/cart' element={
+          <Cart
+            cartItems={cartItems}
+            onAdd={onAdd}
+            onRemove={onRemove} />}
+        />
       </Routes>
       {/* <NavbarComponent />
       <img src={mainImg} className='mainImg' alt='Photo by <a href="https://unsplash.com/@viazavier?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Laura Ockel</a> on <a href="https://unsplash.com/photos/eUdVWOBUjJw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>' />

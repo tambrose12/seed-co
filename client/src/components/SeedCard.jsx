@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 
 
 
-export default function SeedCard({ seed }) {
+export default function SeedCard({ seed, onAdd }) {
 
 
     return (
@@ -16,7 +16,7 @@ export default function SeedCard({ seed }) {
                 <Card.Text>
                     Price: ${seed.price.toFixed(2)}
                 </Card.Text>
-                <Button variant="outline-success">Add to Cart</Button>
+                <Button variant="outline-success" onClick={() => onAdd(seed)}>Add to Cart</Button>
             </Card.Body>
         </Card>
     )

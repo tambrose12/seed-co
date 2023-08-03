@@ -6,7 +6,7 @@ export default function Contact() {
     return (
         <div>
             <NavbarComponent />
-            <h2>Contact Us</h2>
+            <h1 style={{ marginTop: '1rem' }}>Contact Us</h1>
             <p>(contact info here)</p>
         </div>
     )

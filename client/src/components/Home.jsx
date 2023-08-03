@@ -6,6 +6,7 @@ import About from './About'
 import FooterComponent from './FooterComponent'
 
 
+
 export default function Home() {
 
     return (
